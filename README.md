@@ -1,38 +1,50 @@
-RPCS3
-=====
+# RPCS3 M4 Mac Build with RPCN v1.5
 
-[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/RPCS3/rpcs3/rpcs3.yml?branch=master&logo=github&label=Actions)](https://github.com/RPCS3/rpcs3/actions/workflows/rpcs3.yml)
-[![RPCS3 Discord Server](https://img.shields.io/discord/272035812277878785?color=5865F2&label=RPCS3%20Discord&logo=discord&logoColor=white)](https://discord.gg/rpcs3)
+A custom RPCS3 build for Apple Silicon Macs (M1/M2/M3/M4) with RPCN v1.5 online support.
 
-The world's first free and open-source PlayStation 3 emulator/debugger, written in C++ for Windows, Linux, macOS and FreeBSD.
+## Why This Build?
 
-You can find some basic information on our [**website**](https://rpcs3.net/). Game info is being populated on the [**Wiki**](https://wiki.rpcs3.net/).
-For discussion about this emulator, PS3 emulation, and game compatibility reports, please visit our [**forums**](https://forums.rpcs3.net) and our [**Discord server**](https://discord.gg/RPCS3).
+Recent RPCS3 builds have stability issues on M4 Macs, but build **0.0.37-18115** works great. However, on December 8, 2025, the RPCN server was updated to v1.5, breaking online connectivity for older builds.
 
-[**Support Lead Developers Nekotekina and kd-11 on Patreon**](https://www.patreon.com/Nekotekina)
+This custom build combines:
+- ✅ **Base:** RPCS3 0.0.37-18115 (last stable M4 Mac build)
+- ✅ **Patch:** RPCN v1.5.0 protocol update for online play
 
-## Contributing
+## Download
 
-If you want to help the project but do not code, the best way to help out is to test games and make bug reports. See:
-* [Quickstart](https://rpcs3.net/quickstart)
+📥 **[Download Latest Release](../../releases/latest)**
 
-If you want to contribute as a developer, please take a look at the following pages:
+## Installation
 
-* [Coding Style](https://github.com/RPCS3/rpcs3/wiki/Coding-Style)
-* [Developer Information](https://github.com/RPCS3/rpcs3/wiki/Developer-Information)
+1. Download the zip file from Releases
+2. Unzip and drag `rpcs3.app` to your **Applications** folder
+3. **First launch:** Right-click the app and select "Open" (to bypass Gatekeeper)
 
-You should also contact any of the developers in the forums or in the Discord server to learn more about the current state of the emulator.
+### If you get a code signing error:
 
-## Building
+Open Terminal and run:
+```bash
+xattr -cr /Applications/rpcs3.app
+codesign --force --deep --sign - /Applications/rpcs3.app
+```
 
-See [BUILDING.md](BUILDING.md) for more information about how to setup an environment to build RPCS3.
+## Notes
 
-## Running
+- This build is specifically for **Apple Silicon Macs** (arm64)
+- Your existing RPCS3 config, games, and saves will work
+- Config location: `~/Library/Application Support/rpcs3/`
 
-Check our friendly [quickstart](https://rpcs3.net/quickstart) guide to make sure your computer meets the minimum system requirements to run RPCS3.
+## Source
 
-Don't forget to have your graphics driver up to date and to install the [Visual C++ Redistributable Packages for Visual Studio 2022](https://aka.ms/vs/17/release/VC_redist.x64.exe) if you are a Windows user.
+Built from the official RPCS3 source with:
+- Base commit: [6b238d8](https://github.com/RPCS3/rpcs3/commit/6b238d847fd7576773d1d5653a90dbc1acadd313) (build 37-18115)
+- RPCN v1.5 patch: [PR #17825](https://github.com/RPCS3/rpcs3/pull/17825)
 
-## License
+## Disclaimer
 
-Most files are licensed under the terms of GNU GPL-2.0-only License; see LICENSE file for details. Some files may be licensed differently; check appropriate file headers for details.
+This is an unofficial custom build. For issues specific to this build, please open an issue here. Do NOT report issues to the official RPCS3 project.
+
+---
+
+*Built with ❤️ for the PS3 emulation community*
+
