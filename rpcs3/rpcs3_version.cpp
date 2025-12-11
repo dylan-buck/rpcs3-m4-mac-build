@@ -34,29 +34,14 @@ namespace rpcs3
 
 	std::string get_version_and_branch()
 	{
-		// Add branch and commit hash to version on frame unless it's master.
-		if (rpcs3::get_branch() != "master"sv && rpcs3::get_branch() != "HEAD"sv)
-		{
-			return get_verbose_version();
-		}
-
-		// Get version by substringing VersionNumber-buildnumber-commithash to get just the part before the dash
-		std::string version = rpcs3::get_version().to_string();
-
-		const auto last_minus = version.find_last_of('-');
-		version = version.substr(0, last_minus);
-
-		return version;
+		// Custom DB Mac Build
+		return "DB Mac Build RPCN v1.5";
 	}
 
 	std::string get_verbose_version()
 	{
-		std::string version = fmt::format("%s | %s", rpcs3::get_version().to_string(), get_branch());
-		if (is_local_build())
-		{
-			fmt::append(version, " | local_build");
-		}
-		return version;
+		// Custom DB Mac Build
+		return "DB Mac Build RPCN v1.5";
 	}
 
 	bool is_release_build()

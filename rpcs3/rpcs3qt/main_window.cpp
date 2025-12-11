@@ -201,7 +201,7 @@ bool main_window::Init([[maybe_unused]] bool with_cli_boot)
 	CreateConnects();
 
 	setMinimumSize(350, minimumSizeHint().height());    // seems fine on win 10
-	setWindowTitle(QString::fromStdString("RPCS3 " + rpcs3::get_verbose_version()));
+	setWindowTitle(QString::fromStdString("RPCS3 DB Mac Build RPCN v1.5"));
 
 	Q_EMIT RequestGlobalStylesheetChange();
 	ConfigureGuiFromSettings();
